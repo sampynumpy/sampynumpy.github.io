@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chord Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="app">
+
+  <!-- MAIN -->
+  <div class="container">
+    <h1>🎸 Chord Generator</h1>
+
+    <div class="buttons">
+      <button onclick="generateChords()">Generate Chords</button>
+      <button onclick="buildChord()">Build Chord</button>
+      <button onclick="saveProgression()">⭐ Save</button>
+      <button onclick="exportMidi()">🎹 Export MIDI</button>
+    </div>
+
+    <!-- METRONOME -->
+    <div class="metronome">
+      <label>Tempo: <span id="tempoValue">100</span> BPM</label>
+      <input type="range" min="40" max="200" value="100"
+             oninput="updateTempo(this.value)">
+      <button onclick="toggleMetronome()">⏱ Start / Stop Metronome</button>
+    </div>
+
+    <pre id="output" class="result"></pre>
+
+    <!-- RECALL SECTION -->
+    <div id="recallSection" style="display:none; margin-top:30px;">
+      <h3>🎯 Try Recall</h3>
+      <p>Select all notes in the key on the fretboard</p>
+
+      <object
+        id="fretboard"
+        type="image/svg+xml"
+        data="static/assets/fretboard.svg"
+        style="width:100%; margin:15px 0;">
+      </object>
+
+      <button onclick="checkRecall()">Check Recall</button>
+      <p id="recallFeedback"></p>
+    </div>
+
+    <!-- CHORD DIAGRAMS -->
+    <div id="chordDiagrams" style="display:none; margin-top:25px;">
+      <h3>🎼 Chord Diagrams</h3>
+      <div id="diagramContainer"></div>
+    </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h3>Saved Progressions</h3>
+    <ul id="savedList"></ul>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/midi-writer-js@2.1.4/build/MidiWriter.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
