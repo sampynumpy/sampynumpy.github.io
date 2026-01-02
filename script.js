@@ -126,7 +126,7 @@ function injectRecallUI() {
 
   const obj = document.createElement("object");
   obj.type = "image/svg+xml";
-  obj.data = "main/fretboard.svg";
+  obj.data = "fretboard.svg";
   obj.style.width = "100%";
   obj.style.marginTop = "15px";
 
@@ -196,7 +196,7 @@ function unlockChords() {
 
   currentProgression.chords.forEach(chord => {
     const img = document.createElement("img");
-    img.src = `main/${encodeURIComponent(chord.replace(/\s+/g, "_"))}.svg`;
+    img.src = `${encodeURIComponent(chord.replace(/\s+/g, "_"))}.svg`;
     img.style.width = "120px";
     img.style.margin = "8px";
     img.title = chord;
